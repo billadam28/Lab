@@ -76,3 +76,28 @@ CREATE TABLE `Students` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-04-17 14:16:22
+
+
+CREATE TABLE `Visitor` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`, `email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `Admin` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`, `email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `Users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`email`) REFERENCES `Visitor` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`email`) REFERENCES `Admin` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+

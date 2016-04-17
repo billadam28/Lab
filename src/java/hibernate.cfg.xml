@@ -10,6 +10,9 @@
     <property name="hibernate.connection.pool_size">5</property>
     <mapping resource="LabPojos/Doctor.hbm.xml"/>
     <mapping resource="LabPojos/Students.hbm.xml"/>
+    <mapping resource="LabPojos/Visitor.hbm.xml"/>
+    <mapping resource="LabPojos/Admin.hbm.xml"/>
+    <mapping resource="LabPojos/Users.hbm.xml"/>
     <mapping resource="LabPojos/Hospital.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

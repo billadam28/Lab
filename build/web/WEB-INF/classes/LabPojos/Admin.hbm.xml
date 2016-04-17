@@ -3,19 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 17, 2016 5:31:02 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="LabPojos.Students" table="Students" catalog="lab" optimistic-lock="version">
+    <class name="LabPojos.Admin" table="Admin" catalog="lab" optimistic-lock="version">
         <id name="id" type="int">
-            <column name="Id" />
+            <column name="id" />
             <generator class="assigned" />
         </id>
-        <property name="name" type="string">
-            <column name="Name" length="50" not-null="true" />
-        </property>
         <property name="email" type="string">
-            <column name="Email" length="50" />
+            <column name="email" length="50" not-null="true" unique="true" />
         </property>
-        <property name="degree" type="string">
-            <column name="Degree" length="50" />
+        <property name="pass" type="string">
+            <column name="pass" length="50" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

@@ -82,22 +82,32 @@ CREATE TABLE `Visitor` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `pass` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`, `email`)
+  unique (email),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Admin` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `pass` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`, `email`)
+  unique (email),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Users` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `visit_id` int(11) not null,
+  `admin_id` int(11) not null, 
   `type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`email`) REFERENCES `Visitor` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`email`) REFERENCES `Admin` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
+  constraint fk1 FOREIGN KEY (`email`) REFERENCES `Visitor` (email) 
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  constraint fk2 FOREIGN KEY (`email`) REFERENCES `Admin` (email) 
+  ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+drop table visitor;
+drop table admin;
+drop table users;
